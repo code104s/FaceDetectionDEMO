@@ -114,13 +114,13 @@ class CaptureWebcamWindow(QMainWindow):
     def startCapture(self):
         self.face_detector = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
         self.face_id = self.userIdEdit.text()
-        self.face_name = self.nameEdit.text()
+        # self.face_name = self.nameEdit.text()
 
         user_id = self.userIdEdit.text()
-        name = self.nameEdit.text()
+        # name = self.nameEdit.text()
         user_id = int(user_id)
 
-        print("\n [INFO] Initializing face capture for user id:{0} , name :{1}", self.face_id, self.face_name)
+        print("\n [INFO] Initializing face capture for user id:{0}", self.face_id)
         self.count = 0
         self.cam = cv2.VideoCapture(0)
         self.cam.set(3, 640)  # set video width
@@ -128,7 +128,7 @@ class CaptureWebcamWindow(QMainWindow):
         self.minW = 0.1 * self.cam.get(3)
         self.minH = 0.1 * self.cam.get(4)
 
-        self.nameEdit.setEnabled(False)
+        # self.nameEdit.setEnabled(False)
         self.userIdEdit.setEnabled(False)
 
 
@@ -141,7 +141,7 @@ class CaptureWebcamWindow(QMainWindow):
         self.killTimer(self.captureTimer)
         self.cam.release()
 
-        self.nameEdit.setEnabled(True)
+        # self.nameEdit.setEnabled(True)
         self.userIdEdit.setEnabled(True)
 
 
